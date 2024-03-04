@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('products/displaygrid', 'App\Http\Controllers\productController@displaygrid')->name('products.displaygrid');
+//Route::resource('products', 'productController');
+Route::resource('products', App\Http\Controllers\productController::class);
+
+Route::get('products/additem/{id}', 'App\Http\Controllers\productController@additem')->name('products.additem');
+Route::resource('orderdetails', App\Http\Controllers\orderdetailController::class);
+
+
+Route::resource('scorders', App\Http\Controllers\scorderController::class);
